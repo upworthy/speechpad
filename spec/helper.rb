@@ -6,3 +6,11 @@ unless ENV['CI']
 end
 require 'speechpad'
 require 'rspec'
+require 'timecop'
+require 'webmock/rspec'
+
+RSpec.configure do |config|
+  config.before(:all) do
+    Timecop.freeze(Time.local(2014))
+  end
+end

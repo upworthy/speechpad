@@ -13,6 +13,7 @@ module Speechpad
 
         conn.request :url_encoded
         conn.response :mashify
+        conn.response :json, :content_type => /\bjson$/
 
         conn.adapter Faraday.default_adapter
       end
