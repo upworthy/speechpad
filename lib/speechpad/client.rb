@@ -76,7 +76,7 @@ module Speechpad
     # @return [Mash] Mashify body with ERROR_STRING and Response
     # @example Get the machine transcription status of the audio file
     #   s = Speechpad::Client.new({access_key: "abc123", secret_key: "xyz456"})
-    #   s.get_machine_transcription_status(1234)
+    #   s.machine_transcription_status(1234)
     def machine_transcription_status(audio_id, options={})
       params = build_params('operation' => 'machine_transcription_status', 'method' => 'get', 'audio_id' => audio_id)
       get(params, options)
@@ -89,7 +89,7 @@ module Speechpad
     # @return [Mash] Mashify body with ERROR_STRING and Response
     # @example Get the transcription status of the audio file
     #   s = Speechpad::Client.new({access_key: "abc123", secret_key: "xyz456"})
-    #   s.get_transcription_status(1234)
+    #   s.transcription_status(1234)
     def transcription_status(audio_id, options={})
       params = build_params('operation' => 'transcription_status', 'method' => 'get', 'audio_id' => audio_id)
       get(params, options)
