@@ -10,6 +10,7 @@ A Ruby wrapper for the Speechpad API
 
 ## Documentation
 
+[http://rdoc.info/gems/speechpad](http://rdoc.info/gems/speechpad)
 
 ## Usage Examples
     require 'spechpad'
