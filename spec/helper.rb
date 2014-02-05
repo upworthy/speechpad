@@ -11,6 +11,6 @@ require 'webmock/rspec'
 
 RSpec.configure do |config|
   config.before(:all) do
-    Timecop.freeze(Time.local(2014))
+    Timecop.freeze(Time.utc(2014))
   end
 end
