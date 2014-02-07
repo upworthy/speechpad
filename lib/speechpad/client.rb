@@ -6,7 +6,7 @@ module Speechpad
     def initialize(options={})
       @access_key = options[:access_key]
       @secret_key = options[:secret_key]
-      @speechpad_url =  options[:url] || 'http://www.speechpad.com/'
+      @speechpad_url =  options[:url] || 'https://www.speechpad.com/'
     end
 
     include Speechpad::Connection
