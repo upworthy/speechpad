@@ -50,19 +50,19 @@ describe Speechpad do
   describe ".get_transcription" do
     it "should get the transcription of the audo file and return it" do
       stub_request(:get, "http://dev.speechpad.com/services?access_key=abc123&audio_id=1234&format=json&method=get&operation=get_transcription&service_name=account&service_version=1.0.0&signature=RFYtgGb2t4T5h5Bq5vqdl4KgL5I=&timestamp=2014-01-01T00:00:00Z").
-         to_return(:status => 200, :body => '{"error_string":"SUCCESS","response":"Hello!"}' , :headers => {'Content-Type' => 'application/json'})
+         to_return(:status => 200, :body => '{"error_string":"SUCCESS","response":{"content": "Hello!"}}' , :headers => {'Content-Type' => 'application/json'})
       test = @client.get_transcription(1234)
-      test.response.should eql "Hello!"
+      test.response.content.should eql "Hello!"
     end
   end
 
   describe ".get_machine_transcription" do
     it "should get the machine transcription of the audo file and return it" do
        stub_request(:get, "http://dev.speechpad.com/services?access_key=abc123&audio_id=1234&format=json&method=get&operation=get_machine_transcription&service_name=account&service_version=1.0.0&signature=6yg9RfjBygBzqNVbAmfNFHI1UwE=&timestamp=2014-01-01T00:00:00Z").
-         to_return(:status => 200, :body => '{"error_string":"SUCCESS","response":"Hello!"}' , :headers => {'Content-Type' => 'application/json'})
+         to_return(:status => 200, :body => '{"error_string":"SUCCESS","response":{"content": "Hello!"}}' , :headers => {'Content-Type' => 'application/json'})
 
       test = @client.get_machine_transcription(1234)
-      test.response.should eql "Hello!"
+      test.response.content.should eql "Hello!"
     end
   end
 
