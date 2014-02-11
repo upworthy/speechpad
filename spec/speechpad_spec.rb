@@ -54,6 +54,13 @@ describe Speechpad do
       test = @client.get_transcription(1234)
       test.response.content.should eql "Hello!"
     end
+
+    it "should take optional parameters" do
+      stub_request(:get, "http://dev.speechpad.com/services?access_key=abc123&audio_id=1234&file_format=html&format=json&method=get&operation=get_transcription&service_name=account&service_version=1.0.0&signature=riClrOy69CFgWyflNrsjam9RXKU=&timestamp=2014-01-01T00:00:00Z").
+        to_return(:status => 200, :body => '{"error_string":"SUCCESS","response":{"content": "Hello!"}}' , :headers => {'Content-Type' => 'application/json'})
+      test = @client.get_transcription(1234, {"file_format" => "html"})
+      test.error_string.should eql "SUCCESS"
+    end
   end
 
   describe ".get_machine_transcription" do

@@ -23,9 +23,9 @@ module Speechpad
     #   s = Speechpad::Client.new({access_key: "abc123", secret_key: "xyz456"})
     #   s.add_audio_url('https://www.speechpad.com/is_a.mp3')
     def add_audio_url(url, visible_filename=url,  transcribe=true, options={})
-      params = build_params('operation' => 'add_audio_url', 'method' => 'post', 'visible_filename' => visible_filename,
-                            'url' => url, 'transcribe' => transcribe)
-      get(params, options)
+      params = build_params({'operation' => 'add_audio_url', 'method' => 'post', 'visible_filename' => visible_filename,
+                            'url' => url, 'transcribe' => transcribe}.merge(options))
+      get(params)
     end
 
     # Add a new media to the user’s account from a URL, like Youtube.
@@ -38,8 +38,8 @@ module Speechpad
     #   s = Speechpad::Client.new({access_key: "abc123", secret_key: "xyz456"})
     #   s.add_media_url('http://www.youtube.com/watch?v=meiU6TxysCg')
     def add_media_url(url, transcribe=true, options={})
-      params = build_params('operation' => 'add_media_url', 'method' => 'post', 'url' => url, 'transcribe' => transcribe)
-      get(params, options)
+      params = build_params({'operation' => 'add_media_url', 'method' => 'post', 'url' => url, 'transcribe' => transcribe}.merge(options))
+      get(params)
     end
 
     # Return the transcription status of one or more audio files.
@@ -51,8 +51,8 @@ module Speechpad
     #   s = Speechpad::Client.new({access_key: "abc123", secret_key: "xyz456"})
     #   s.get_transcription(1234)
     def get_transcription(audio_id, options={})
-      params = build_params('operation' => 'get_transcription', 'method' => 'get', 'audio_id' => audio_id)
-      get(params, options)
+      params = build_params({'operation' => 'get_transcription', 'method' => 'get', 'audio_id' => audio_id}.merge(options))
+      get(params)
     end
 
     # Return the machine transcription status of one or more audio files.
@@ -64,8 +64,8 @@ module Speechpad
     #   s = Speechpad::Client.new({access_key: "abc123", secret_key: "xyz456"})
     #   s.get_machine_transcription(1234)
     def get_machine_transcription(audio_id, options={})
-      params = build_params('operation' => 'get_machine_transcription', 'method' => 'get', 'audio_id' => audio_id)
-      get(params, options)
+      params = build_params({'operation' => 'get_machine_transcription', 'method' => 'get', 'audio_id' => audio_id}.merge(options))
+      get(params)
     end
 
 
@@ -78,8 +78,8 @@ module Speechpad
     #   s = Speechpad::Client.new({access_key: "abc123", secret_key: "xyz456"})
     #   s.machine_transcription_status(1234)
     def machine_transcription_status(audio_id, options={})
-      params = build_params('operation' => 'machine_transcription_status', 'method' => 'get', 'audio_id' => audio_id)
-      get(params, options)
+      params = build_params({'operation' => 'machine_transcription_status', 'method' => 'get', 'audio_id' => audio_id}.merge(options))
+      get(params)
     end
 
     # Return the transcription status of one or more audio files.
@@ -91,8 +91,8 @@ module Speechpad
     #   s = Speechpad::Client.new({access_key: "abc123", secret_key: "xyz456"})
     #   s.transcription_status(1234)
     def transcription_status(audio_id, options={})
-      params = build_params('operation' => 'transcription_status', 'method' => 'get', 'audio_id' => audio_id)
-      get(params, options)
+      params = build_params({'operation' => 'transcription_status', 'method' => 'get', 'audio_id' => audio_id}.merge(options))
+      get(params)
     end
 
     # A test call for the Speechpad API (only works on dev).
@@ -103,7 +103,7 @@ module Speechpad
     #   s = Speechpad::Client.new({access_key: "abc123", secret_key: "xyz456"})
     #   s.test
     def test(options={})
-      params = build_params('operation' => 'test', 'value' => '123', 'method' => 'get')
+      params = build_params({'operation' => 'test', 'value' => '123', 'method' => 'get'}.merge(options))
       get(params, options)
     end
 
