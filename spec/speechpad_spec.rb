@@ -13,7 +13,7 @@ describe Speechpad do
   end
 
   describe ".respond_to?" do
-    it "should be true if method exists" do
+    pending it "should be true if method exists" do
       Speechpad.respond_to?(:new, true).should be_true
     end
   end
