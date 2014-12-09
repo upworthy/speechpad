@@ -9,7 +9,7 @@ module Speechpad
     def connection(options={})
       connection = Faraday.new @speechpad_url do |conn|
         # Uncomment if want to log to stdout
-        conn.response :logger
+        #conn.response :logger
 
         conn.request :url_encoded
         conn.response :mashify
