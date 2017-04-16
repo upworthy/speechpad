@@ -1,4 +1,5 @@
 require 'speechpad/client'
+require 'logger'
 
 module Speechpad
   class << self
